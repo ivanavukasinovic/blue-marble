@@ -1,12 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hellofx.BlueMarbleController">
-   <children>
-      <ImageView fx:id="image" fitHeight="375.0" fitWidth="389.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
-      <DatePicker fx:id="datePicker" layoutX="520.0" layoutY="17.0" onAction="#updateDate" prefHeight="49.0" prefWidth="23.0" />
-   </children>
+	<children>
+		<ImageView fx:id="image" fitHeight="375.0" fitWidth="389.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+			<image>
+				<Image url="@hellofx/earth.jpg" />
+			</image>
+		</ImageView>
+		<DatePicker fx:id="datePicker" editable="false" layoutX="403.0" layoutY="35.0" onAction="#updateDate" prefHeight="30.0" prefWidth="186.0" promptText="Select date" />
+		<Text fx:id="text" fill="#f20202" layoutX="403.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dates in the future cannot be selected!">
+			<font>
+				<Font size="10.0" />
+			</font>
+		</Text>
+		<CheckBox fx:id="enhanced" layoutX="403.0" layoutY="290.0" mnemonicParsing="false" onAction="#enhancedSelected" prefHeight="17.0" prefWidth="171.0" text="Enhanced Image">
+			<font>
+				<Font name="System Bold" size="12.0" />
+			</font>
+		</CheckBox>
+		<RadioButton fx:id="natural" layoutX="403.0" layoutY="349.0" mnemonicParsing="false" onAction="#naturalOrBlackAndWhite" selected="true" text="Natural">
+			<toggleGroup>
+				<ToggleGroup fx:id="color" />
+			</toggleGroup>
+		</RadioButton>
+		<RadioButton fx:id="blackAndWhite" layoutX="478.0" layoutY="349.0" mnemonicParsing="false" onAction="#naturalOrBlackAndWhite" text="Black and White" toggleGroup="$color" />
+		<Label fx:id="colorLabel" layoutX="403.0" layoutY="326.0" text="Color:">
+			<font>
+				<Font name="System Bold" size="12.0" />
+			</font>
+		</Label>
+	</children>
 </AnchorPane>
